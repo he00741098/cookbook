@@ -46,7 +46,7 @@ const { post } = Astro.props;
 <script>
 
 import { navigate } from "astro:transitions/client";
-document.addEventListener("astro:page-load", () => {
+
 document.getElementsByClassName("buttonprev")[0].onclick = function(e){
   let id = Number(document.getElementById("id").innerText)-1;
   if(id>=0){
@@ -64,7 +64,31 @@ document.getElementsByClassName("buttonnext")[0].onclick = function(e){
   }else{
     navigate("/recipes/0");
   }
-  }});
+  };
+
+document.addEventListener("astro:page-load", () => {
+  if(!window.location.toString().includes("recipes")){
+    return;
+  }
+document.getElementsByClassName("buttonprev")[0].onclick = function(e){
+  let id = Number(document.getElementById("id").innerText)-1;
+  if(id>=0){
+    navigate("/recipes/"+id);
+  }else{
+    navigate("/recipes/21");
+  }
+}
+
+
+document.getElementsByClassName("buttonnext")[0].onclick = function(e){
+  let id = Number(document.getElementById("id").innerText)+1;
+  if(id<=21){
+    navigate("/recipes/"+id);
+  }else{
+    navigate("/recipes/0");
+  }
+  }
+});
 </script>
 <style>
 .title{
