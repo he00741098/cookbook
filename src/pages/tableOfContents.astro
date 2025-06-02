@@ -1,0 +1,91 @@
+---
+import RecipeLayout from '../layouts/RecipeLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = await getCollection('recipes');
+---
+
+<RecipeLayout>
+  <div class="body">
+    <h1 class="toc-title">A Table of Contents</h1>
+  {posts.map(post => (
+  <div class="recipe">
+      <div class="text">
+
+    <h3>
+        <a href={`/recipes/${post.id}`}>{post.data.name}</a>
+      </h3>
+
+      <h4 class="serving">
+        Serves {post.data.serving}
+      </h4>
+        <span class="filler"></span>
+      </div>
+      <div class="picture">
+      <img src={post.data.picture}>
+      </div>
+    </div>
+  ))}
+
+  </div>
+</RecipeLayout>
+<script>
+const { animate, scroll } = Motion
+</script>
+<style>
+.serving{
+margin-left:20px;
+}
+h1{
+position:relative;
+color:white;
+z-index:3;
+}
+h3{
+color:#1a1a1a;
+position:relative;
+z-index:3;
+}
+h4{
+color:#a1a1a1;
+position:relative;
+z-index:3;
+}
+.body{
+position: relative;
+width:50%;
+left:25%;
+top:10%;
+/* text-align:center; */
+}
+.recipe{
+padding-left:20px;
+padding-bottom:5px;
+width:80%;
+background-color:#2a2a2a;
+/* border-radius: 5px 5px 5px 5px; */
+box-shadow: 3px 3px 0px 0px black;
+height:fit-content;
+min-height:30px;
+display:grid;
+grid-template-columns:40% 60%;
+}
+
+a{
+text-decoration:underline;
+color:#ececec;
+}
+a:hover{
+text-decoration:underline;
+color:#white;
+transition: color 1s;
+}
+img{
+height:80px;
+}
+.picture{
+width:80%;
+display:grid;
+justify-content:end;
+align-content:center;
+}
+</style>

@@ -1,0 +1,26 @@
+---
+const {name, href} = Astro.props;
+---
+<div class="headercell">
+  <a href={href}>{name}</a>
+</div>
+<style>
+.headercell{
+width:100%;
+height:100%;
+justify-self:center;
+justify-content:center;
+text-align:center;
+align-content:center;
+display:grid;
+}
+a{
+text-decoration:none;
+color:#8f8f8f;
+}
+a:hover{
+text-decoration:underline;
+color:#9f9f9f;
+transition: color 1s;
+}
+</style>

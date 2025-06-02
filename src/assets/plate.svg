@@ -1,0 +1,67 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="opacityGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-opacity="1" />
+      <stop offset="100%" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <g transform="translate(100, 100)">
+    <circle r="90" fill="darkgrey" />
+    <circle r="90" fill="url(#opacityGradient)" />
+
+    <g fill="grey" stroke="none">
+      <circle cx="0" cy="0" r="2" opacity="0.8" />
+      <circle cx="10" cy="0" r="2" opacity="0.8" />
+      <circle cx="-10" cy="0" r="2" opacity="0.8" />
+      <circle cx="5" cy="8.66" r="2" opacity="0.8" />
+      <circle cx="-5" cy="8.66" r="2" opacity="0.8" />
+      <circle cx="5" cy="-8.66" r="2" opacity="0.8" />
+      <circle cx="-5" cy="-8.66" r="2" opacity="0.8" />
+
+      <circle cx="17.32" cy="0" r="3" opacity="0.6" />
+      <circle cx="-17.32" cy="0" r="3" opacity="0.6" />
+      <circle cx="8.66" cy="15" r="3" opacity="0.6" />
+      <circle cx="-8.66" cy="15" r="3" opacity="0.6" />
+      <circle cx="8.66" cy="-15" r="3" opacity="0.6" />
+      <circle cx="-8.66" cy="-15" r="3" opacity="0.6" />
+      <circle cx="17.32/2" cy="15*sqrt(3)/2" r="3" opacity="0.6" />
+      <circle cx="-17.32/2" cy="15*sqrt(3)/2" r="3" opacity="0.6" />
+      <circle cx="17.32/2" cy="-15*sqrt(3)/2" r="3" opacity="0.6" />
+      <circle cx="-17.32/2" cy="-15*sqrt(3)/2" r="3" opacity="0.6" />
+
+      <circle cx="25.98" cy="0" r="4" opacity="0.4" />
+      <circle cx="-25.98" cy="0" r="4" opacity="0.4" />
+      <circle cx="12.99" cy="22.5" r="4" opacity="0.4" />
+      <circle cx="-12.99" cy="22.5" r="4" opacity="0.4" />
+      <circle cx="12.99" cy="-22.5" r="4" opacity="0.4" />
+      <circle cx="-12.99" cy="-22.5" r="4" opacity="0.4" />
+      <circle cx="25.98/2" cy="22.5*sqrt(3)/2" r="4" opacity="0.4" />
+      <circle cx="-25.98/2" cy="22.5*sqrt(3)/2" r="4" opacity="0.4" />
+      <circle cx="25.98/2" cy="-22.5*sqrt(3)/2" r="4" opacity="0.4" />
+      <circle cx="-25.98/2" cy="-22.5*sqrt(3)/2" r="4" opacity="0.4" />
+
+      <circle cx="34.64" cy="0" r="5" opacity="0.2" />
+      <circle cx="-34.64" cy="0" r="5" opacity="0.2" />
+      <circle cx="17.32" cy="30" r="5" opacity="0.2" />
+      <circle cx="-17.32" cy="30" r="5" opacity="0.2" />
+      <circle cx="17.32" cy="-30" r="5" opacity="0.2" />
+      <circle cx="-17.32" cy="-30" r="5" opacity="0.2" />
+      <circle cx="34.64/2" cy="30*sqrt(3)/2" r="5" opacity="0.2" />
+      <circle cx="-34.64/2" cy="30*sqrt(3)/2" r="5" opacity="0.2" />
+      <circle cx="34.64/2" cy="-30*sqrt(3)/2" r="5" opacity="0.2" />
+      <circle cx="-34.64/2" cy="-30*sqrt(3)/2" r="5" opacity="0.2" />
+
+      <circle cx="43.3" cy="0" r="6" opacity="0.1" />
+      <circle cx="-43.3" cy="0" r="6" opacity="0.1" />
+      <circle cx="21.65" cy="37.5" r="6" opacity="0.1" />
+      <circle cx="-21.65" cy="37.5" r="6" opacity="0.1" />
+      <circle cx="21.65" cy="-37.5" r="6" opacity="0.1" />
+      <circle cx="-21.65" cy="-37.5" r="6" opacity="0.1" />
+      <circle cx="43.3/2" cy="37.5*sqrt(3)/2" r="6" opacity="0.1" />
+      <circle cx="-43.3/2" cy="37.5*sqrt(3)/2" r="6" opacity="0.1" />
+      <circle cx="43.3/2" cy="-37.5*sqrt(3)/2" r="6" opacity="0.1" />
+      <circle cx="-43.3/2" cy="-37.5*sqrt(3)/2" r="6" opacity="0.1" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,146 @@
+---
+import { getCollection, render } from 'astro:content';
+import RecipeLayout from '../../layouts/RecipeLayout.astro';
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const posts = await getCollection('recipes');
+  return posts.map(post => ({
+    params: { id: post.id, name:post.name },
+    props: { post },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { post } = Astro.props;
+---
+<RecipeLayout>
+
+  <div class="body">
+    <div class="title">
+
+  <h1>{post.data.name}</h1>
+
+    <div class="buttonbar">
+      <button class="buttonprev">Previous</button>
+      <button class="buttonnext">Next</button>
+    </div>
+    </div>
+    <h2>Serves {post.data.serving}</h2>
+    <div class="split">
+      <div class="ingredients">
+
+      <h3>Ingredients</h3>
+        {post.data.ingredients.split("\n").map(line=>(line.trim())).map(line=>{if(line.toString().includes("Day")||line.toString().includes("DAY")||line.toString().toLowerCase().includes("method")){return <strong>{line}</strong>}else{return line}}).map(line=>(<span>{line}</span><br>))}
+
+        <br>
+
+      <h3>Method</h3>
+    {post.data.instructions.split("\n").map(line=>(line.trim())).map(line=>{if(line.toString().includes("Day")||line.toString().includes("DAY")||line.toString().toLowerCase().includes("method")){return <strong>{line}</strong>}else{return line}}).map(line=>(<span>{line}</span><br>))}
+      </div>
+      <div class="picture">
+    <img src={post.data.picture}>
+      </div>
+    </div>
+  </div>
+  <div id="id" style="display:none">{post.data.id}</div>
+</RecipeLayout>
+<script>
+
+import { navigate } from "astro:transitions/client";
+document.addEventListener("astro:page-load", () => {
+document.getElementsByClassName("buttonprev")[0].onclick = function(e){
+  let id = Number(document.getElementById("id").innerText)-1;
+  if(id>=0){
+    navigate("/recipes/"+id);
+  }else{
+    navigate("/recipes/21");
+  }
+}
+
+
+document.getElementsByClassName("buttonnext")[0].onclick = function(e){
+  let id = Number(document.getElementById("id").innerText)+1;
+  if(id<=21){
+    navigate("/recipes/"+id);
+  }else{
+    navigate("/recipes/0");
+  }
+  }});
+</script>
+<style>
+.title{
+display:grid;
+width:100%;
+grid-template-columns:50% 50%;
+}
+.buttonbar{
+margin-top:20px;
+background-color:#3a3a3a;
+width:200px;
+height:30px;
+padding:4px;
+display:flex;
+justify-content:space-evenly;
+padding-top:6px;
+padding-bottom:6px;
+border-radius:3px 3px 3px 3px;
+}
+button{
+cursor:pointer;
+padding:5px;
+border:none;
+border-radius:2px 2px 2px 2px;
+color:white;
+width:70px;
+}
+.buttonprev{
+background-color:red;
+}
+.buttonnext{
+background-color:navy;
+}
+
+span{
+color:#9a9a9a;
+margin-top:5px;
+margin-bottom:5px;
+}
+strong{
+color:white;
+}
+h2{
+position:relative;
+color:#9f9f9f;
+
+}
+h1{
+position:relative;
+color:white;
+z-index:3;
+}
+h3{
+color:#9a9a9a;
+position:relative;
+z-index:3;
+}
+.body{
+position: relative;
+width:50%;
+left:25%;
+top:15%;
+/* text-align:center; */
+}
+.picture{
+display:grid;
+/* justify-content:center; */
+}
+img{
+height:300px;
+margin-left:30px;
+}
+.split{
+display:grid;
+grid-template-columns: 40% 60%;
+width:100%;
+}
+</style>
+

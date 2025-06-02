@@ -1,11 +1,44 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import RecipeLayout from '../layouts/RecipeLayout.astro';
+import plate from '../assets/plate.svg'
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<RecipeLayout>
+  <div class="body">
+    <h1 class="home-title">A Culinary Arts 1 Recipe Book</h1>
+    <h3 class="home-subtitle">By Jesse He</h3>
+    <img class="home-img" src={plate.src}>
+  </div>
+</RecipeLayout>
+<script>
+const { animate, scroll } = Motion
+animate(".home-img",   { scale: [0.9, 1] },
+{ ease: "circInOut", duration: 0.7 });
+</script>
+<style>
+h1{
+position:relative;
+color:white;
+z-index:3;
+}
+h3{
+color:#9a9a9a;
+position:relative;
+z-index:3;
+}
+.body{
+position: relative;
+width:50%;
+left:25%;
+top:400px;
+text-align:center;
+}
+img{
+width:50%;
+position:absolute;
+top:-250%;
+left:25%;
+z-index:0;
+opacity:0.32;
+}
+</style>

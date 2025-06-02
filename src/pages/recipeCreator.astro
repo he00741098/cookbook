@@ -1,0 +1,51 @@
+---
+import RecipeLayout from '../layouts/RecipeLayout.astro';
+import plate from '../assets/plate.svg'
+---
+
+<RecipeLayout>
+  <div class="body">
+    <textarea id="name" placeholder="name"></textarea>
+    <textarea id="serving" placeholder="serving"></textarea>
+    <textarea id="ingredients" placeholder="ingredients"></textarea>
+    <textarea id="instructions" placeholder="instructions"></textarea>
+    <textarea id="picture" placeholder="picture src"></textarea>
+    <button id="submit">submit</button>
+    <button id="clear">clear</button>
+  </div>
+</RecipeLayout>
+<style>
+.body{
+position:absolute;
+display:block;
+justify-content:center;
+width:100%;
+height:100%;
+top:25%;
+}
+textarea{
+height:fit-content;
+width:fit-content;
+}
+</style>
+<script>
+document.getElementById("submit").onclick = function (){
+let bob={};
+bob.name = document.getElementById("name").value;
+bob.serving = document.getElementById("serving").value;
+bob.instructions = document.getElementById("instructions").value;
+bob.ingredients = document.getElementById("ingredients").value;
+bob.picture = document.getElementById("picture").value;
+console.log(JSON.stringify(bob));
+}
+
+document.getElementById("clear").onclick = function (){
+document.getElementById("name").value="";
+document.getElementById("serving").value="";
+document.getElementById("instructions").value="";
+document.getElementById("ingredients").value="";
+document.getElementById("picture").value="";
+}
+
+
+</script>
